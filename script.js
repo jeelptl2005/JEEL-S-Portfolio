@@ -55,14 +55,16 @@ contactForm.addEventListener('submit', (e) => {
 
 // Animate skills on scroll
 const skillItems = document.querySelectorAll('.skill-item');
-
+        
 const animateSkills = () => {
     skillItems.forEach(item => {
         const skillBar = item.querySelector('.skill-bar');
         const rect = skillBar.getBoundingClientRect();
         const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
-        
+                
         if (isVisible) {
+            const progress = item.querySelector('.skill-progress');
+            progress.style.width = progress.getAttribute('data-width');
             item.style.opacity = '1';
             item.style.transform = 'translateY(0)';
         }
@@ -74,6 +76,9 @@ skillItems.forEach(item => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(20px)';
     item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+    const progress = item.querySelector('.skill-progress');
+    progress.style.width = '0';
 });
 
 window.addEventListener('scroll', animateSkills);
