@@ -161,6 +161,7 @@
             display: flex;
             justify-content: center;
             animation: fadeInRight 1s ease;
+            filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
         }
 
         .hero-image img {
@@ -625,3 +626,4 @@
             }
 
         }
+
